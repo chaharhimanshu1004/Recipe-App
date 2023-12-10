@@ -8,6 +8,7 @@ const UserSchema = new mongoose.Schema({
     password:{
         type:String,
         required:true,
-    }
+    },
+    savedRecipes:[{type:mongoose.Schema.Types.ObjectId , ref:"recipes"}],
 });
 export const UserModel = mongoose.model("users",UserSchema);
