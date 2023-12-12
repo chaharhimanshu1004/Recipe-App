@@ -15,7 +15,7 @@ export const CreateRecipie=()=>{
         instructions:"",
         imageUrl:"",
         cookingTime:0,
-        userOwner:0,
+        userOwner:userID,
     });
 
     const navigate = useNavigate();
