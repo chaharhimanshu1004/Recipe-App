@@ -28,7 +28,7 @@ router.post('/',async(req,res)=>{
 
 // saved recipes route -- 
  // we need user id and recipe id -- konse user ne konsi recipe save kri h
-router.post('/',async(req,res)=>{
+router.put('/',async(req,res)=>{
     try{
         const user = await UserModel.findById(req.body.userID);
         const recipe = await RecipeModel.findById(req.body.recipeID);
@@ -41,9 +41,9 @@ router.post('/',async(req,res)=>{
     
 });
 
-router.get('/savedRecipes/ids',async(req,res)=>{
+router.get('/savedRecipes/ids/:userID',async(req,res)=>{
     try{
-        const user = await UserModel.findById(req.body.userID);
+        const user = await UserModel.findById(req.params.userID);
         res.json({savedRecipes:user?.savedRecipes});
 
     }catch(err){
